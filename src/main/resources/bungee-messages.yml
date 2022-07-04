@@ -5,4 +5,45 @@
 # Created by JustJustin (MrUniverse44)
 # Version: 1.0.0-SNAPSHOT
 #
-messages: []
+messages:
+  register:
+    - ""
+    - "&aYou need to register, please use this command for play on this server:"
+    - "&7/%command_register% %arg_register_1% %arg_register_2% %arg_register_3%"
+  login:
+    - ""
+    - "<center>&aYou need to log-in, please use"
+    - "<center>&7/%command_login% %arg_login_1% %arg_login_2%"
+  auto-logged:
+    - ""
+    - "<center>&aYou have been auto-logged as a premium user by your UUID"
+
+titles:
+  register:
+    title: NONE
+    subtitle: '&a&lREGISTER'
+    times:
+      fadeIn: 20
+      fadeOut: 20
+      stay: 200
+  login:
+    title: NONE
+    subtitle: '&a&lLOGIN'
+    times:
+      fadeIn: 20
+      fadeOut: 20
+      stay: 200
+  auto:
+    title: NONE
+    subtitle: '&aAuto-Logged'
+    times:
+      fadein: 20
+      fadeout: 20
+      stay: 200
+  successful:
+    title: '&aWelcome %player%'
+    subtitle: '&7Enjoy the server :D!'
+    times:
+      fadein: 20
+      fadeout: 20
+      stay: 200

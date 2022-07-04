@@ -10,6 +10,19 @@ settings:
   # You need to set up the plugin, when you finish the setup
   # Please disable this or the plugin will not start working
   edit-mode: false
+  # Enable the multi-proxy when you are using RedisBungee with this option
+  redis-bungee: false
+  # Modes: AUTOMATIC, MANUAL, STRICT
+  # AUTOMATIC: This mode will protect premium accounts from being used by cracked users, will register and login automatically
+  # Premium accounts.
+  #
+  # MANUAL: All players will need to register and login, but premiums will have the /premium command to switch to the
+  # AUTOMATIC mode
+  #
+  # STRICT: All players including premium players will need to register and login, but this mode will protect premiums
+  # Accounts from being used by cracked users.
+  #
+  plugin-mode: AUTOMATIC
   # MySQL Configuration
   mysql:
     jdbc-url: "jdbc:mysql://[host]:[port]/[db]?autoReconnect=true"
@@ -54,12 +67,22 @@ settings:
     cache-time: "[MIN]20"
     # Time to register
     register: "[MIN]2"
+    # Time for register-messages and titles
+    register-messages-and-titles: "20"
     # Time to log in
     login: "50"
+    # Time for login-messages and titles
+    login-messages-and-titles: "20"
+    # Delay of the Premium Messages and Title to be displayed
+    premium-message-and-title-delay: "3"
   # It's time to set up the security of the plugin and the server/network.
   security:
     # This will be used only for security.
-    player-name-regex: "^\\w*"
+    player-name-regex:
+      # Enable this option
+      enabled: true
+      # Value.
+      value: "^\\w*"
     # Password module
     password:
       # This is the min password length, default: 4
@@ -74,4 +97,34 @@ settings:
     # WARNING! This is so important, the UUID of all players will depend on this option
     # Modes: OFFLINE, DEFAULT
     uuid-mode: DEFAULT
+    # This will kick the player if he uses a wrong password
+    kick-wrong-password: true
+    # IP Limits
+    ip-limit:
+      # Limit number of accounts of a specified IP for register
+      register:
+        # Enable this option
+        enabled: true
+        # Value. Default: 3
+        value: 3
+  # Servers module of the plugin
+  servers:
+    # This will send players to different servers to balance the memory usage of these servers.
+    balancer: true
+    # Players will be sent to a specified server of this list to log in
+    auth-servers:
+      - "Auth"
+    # Players will be sent to a specified server of this list after log in
+    lobby:
+      - "Lobby1"
+      - "Lobby2"
+  # If the server have issues using a specified API, the plugin will switch to another api
+  # When an API is down or the server can't connect to that API.
+  account-api:
+    # This will be used by default.
+    mojang:
+      enabled: true
+    # This will be used when mojang api is down.
+    mine-tools:
+      enabled: true
 
