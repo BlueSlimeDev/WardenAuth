@@ -16,6 +16,7 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
     private final BaseSlimeLoader<T> baseSlimeLoader;
     private final SlimePluginInformation information;
     private final SlimePlatform platform;
+    private final PluginMode mode;
     private final SlimeLogs logs;
     private final File folder;
     private final T plugin;
@@ -48,6 +49,15 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
         getLoader().setFiles(SlimeFile.class);
 
         getLoader().init();
+
+        mode = PluginMode.fromString(
+                getLoader().getFiles().getControl(SlimeFile.SETTINGS).getString("settings.plugin-mode", "1")
+        );
+    }
+
+    //TODO: usage
+    public PluginMode getMode() {
+        return mode;
     }
 
     @Override
