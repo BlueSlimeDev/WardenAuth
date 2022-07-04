@@ -1,0 +1,9 @@
+{
+  "id":"wardenauth",
+  "name":"WardenAuth",
+  "version":"${project.version}",
+  "authors":["JustJustin"],
+  "dependencies":[],
+  "main":"dev.justjustin.wardenauth.initialization.VelocityAuth",
+  "description:":"Auth Plugin for offline-mode servers, and auto-premium-mode for Premiums"
+}

@@ -1,0 +1,77 @@
+# █████████████████████████████████████████████████████████████████████
+# █▄─█▀▀▀█─▄██▀▄─██▄─▄▄▀█▄─▄▄▀█▄─▄▄─█▄─▀█▄─▄████▀▄─██▄─██─▄█─▄─▄─█─█─██
+# ██─█─█─█─███─▀─███─▄─▄██─██─██─▄█▀██─█▄▀─█████─▀─███─██─████─███─▄─██
+# ██▄▄▄█▄▄▄██▄▄█▄▄█▄▄█▄▄█▄▄▄▄██▄▄▄▄▄█▄▄▄██▄▄███▄▄█▄▄██▄▄▄▄███▄▄▄██▄█▄██
+# Created by JustJustin (MrUniverse44)
+# Version: 1.0.0-SNAPSHOT
+
+settings:
+  # Edit Mode of the plugin, WARNING: This is enabled by default
+  # You need to set up the plugin, when you finish the setup
+  # Please disable this or the plugin will not start working
+  edit-mode: false
+  # MySQL Configuration
+  mysql:
+    jdbc-url: "jdbc:mysql://[host]:[port]/[db]?autoReconnect=true"
+    table-prefix: "wardenauth_"
+    host: "localhost"
+    port: "3306"
+    database: "database"
+    username: "root"
+    password: "root"
+    useSQL: false
+  # TimeZone of the server
+  time-zone: "GMT-5"
+  # This is the channel of the PluginMessage with the bungee-cord
+  # The channels and "done-values" need to be the same in your server settings
+  verification:
+    # This channel will be used when the player logged or registered successfully.
+    channel: "wa381c6ax4"
+    # This result need to be the same in your server settings, when the value from the bungee
+    # Is received by the server, if the value is this done-value. the user will be accepted to be logged.
+    done-value: "wauth:done"
+  premium:
+    # This channel will be used when the player uses the premium command in the auth server.
+    channel: "wa967c2ax7"
+    # This result need to be the same in your server settings, when the value from the bungee
+    # Is received by the server, if the value is this done-value. the user will be accepted for the command.
+    done-value: "wauth:done"
+  offline:
+    # This channel will be used when the player uses the cracked command in the auth server.
+    channel: "wa881c7ax6"
+    # This result need to be the same in your server settings, when the value from the bungee
+    # Is received by the server, if the value is this done-value. the user will be accepted for the command.
+    done-value: "wauth:done"
+  # Configuration of timers for different actions.
+  # Default value in SECONDS
+  # Variables:
+  #  [MIN] = Minutes
+  #  [SEC] = Seconds
+  #  [HRS] = Hours
+  # Disable a timer using -1.
+  timers:
+    # Time to remove the cache of the plugin.
+    cache-time: "[MIN]20"
+    # Time to register
+    register: "[MIN]2"
+    # Time to log in
+    login: "50"
+  # It's time to set up the security of the plugin and the server/network.
+  security:
+    # This will be used only for security.
+    player-name-regex: "^\\w*"
+    # Password module
+    password:
+      # This is the min password length, default: 4
+      min-length: 4
+      # This is the max password length, default: 15
+      max-length: 15
+      # This is the encryption for the password.
+      # Supported: SHA256, SHA512, SMD5
+      hash: SHA512
+    # Captcha module, this is optional but is enabled by default.
+    captcha: true
+    # WARNING! This is so important, the UUID of all players will depend on this option
+    # Modes: OFFLINE, DEFAULT
+    uuid-mode: DEFAULT
+

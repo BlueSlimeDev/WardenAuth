@@ -1,0 +1,100 @@
+# █████████████████████████████████████████████████████████████████████
+# █▄─█▀▀▀█─▄██▀▄─██▄─▄▄▀█▄─▄▄▀█▄─▄▄─█▄─▀█▄─▄████▀▄─██▄─██─▄█─▄─▄─█─█─██
+# ██─█─█─█─███─▀─███─▄─▄██─██─██─▄█▀██─█▄▀─█████─▀─███─██─████─███─▄─██
+# ██▄▄▄█▄▄▄██▄▄█▄▄█▄▄█▄▄█▄▄▄▄██▄▄▄▄▄█▄▄▄██▄▄███▄▄█▄▄██▄▄▄▄███▄▄▄██▄█▄██
+# Created by JustJustin (MrUniverse44)
+# Version: 1.0.0-SNAPSHOT
+#
+settings:
+  # Edit Mode of the plugin, WARNING: This is enabled by default
+  # You need to set up the plugin, when you finish the setup
+  # Please disable this or the plugin will not start working
+  edit-mode: false
+  # MySQL Configuration
+  mysql:
+    jdbc-url: "jdbc:mysql://[host]:[port]/[db]?autoReconnect=true"
+    table-prefix: "wardenauth_"
+    host: "localhost"
+    port: "3306"
+    database: "database"
+    username: "root"
+    password: "root"
+    useSQL: false
+  # TimeZone of the server
+  time-zone: "GMT-5"
+  # This is the channel of the PluginMessage with the bungee-cord
+  # The channels and "done-values" need to be the same in your proxy settings
+  verification:
+    # This channel will be used when the player logged or registered successfully.
+    channel: "wa381c6ax4"
+    # This result need to be the same in your proxy settings, when the value from the bungee
+    # Is received by the server, if the value is this done-value. the user will be accepted to be logged.
+    done-value: "wauth:done"
+  premium:
+    # This channel will be used when the player uses the premium command in the auth server.
+    channel: "wa967c2ax7"
+    # This result need to be the same in your proxy settings, when the value from the bungee
+    # Is received by the server, if the value is this done-value. the user will be accepted for the command.
+    done-value: "wauth:done"
+  offline:
+    # This channel will be used when the player uses the cracked command in the auth server.
+    channel: "wa881c7ax6"
+    # This result need to be the same in your proxy settings, when the value from the bungee
+    # Is received by the server, if the value is this done-value. the user will be accepted for the command.
+    done-value: "wauth:done"
+  # This is not obligatory but will modify the login/register experience depending on what the server want
+  # To disable the join or quit message using "none" in the value.
+  server-extra-options:
+    # Variables: %player%
+    join-message: "none"
+    # Variables: %player%, %accounts%, %ip%
+    join-console-message: "none"
+    # Variables. %player%
+    quit-message: "none"
+    # Variables: %player%, %ip%
+    quit-console-message: "none"
+    # Console messages are optional, that's why is disabled by default
+    # ----------------------------------------------------------------
+    # This option will give blindness when the player joins to the server.
+    blindness:
+      # Enable this option.
+      enabled: false
+      # Time of the blindness
+      time: 10000
+    # This will block the movement when the player is in the pre-login phase or in the register phase.
+    block-movement: true
+    # This will block to interact when the player is in the pre-login phase or in the register phase.
+    block-interact: true
+    # This will block the drop when the player is in the pre-login phase or in the register phase.
+    block-drop: true
+    # This will block to pick-up when the player is in the pre-login phase or in the register phase.
+    block-item-pickup: true
+    # This will block the item pickup when the player is in the pre-login phase or in the register phase.
+    block-item-held: true
+    # This will block the fall damage when the player is in the pre-login phase or in the register phase.
+    block-fall-damage: true
+    # This will disable the food in the auth-world for all players.
+    disable-food: true
+    # This will disable the rain in the auth-world for all players.
+    disable-rain: true
+  # Configuration of timers for different actions.
+  # Default value in SECONDS
+  # Variables:
+  #  [MIN] = Minutes
+  #  [SEC] = Seconds
+  #  [HRS] = Hours
+  # Disable a timer using -1.
+  timers:
+    # Max time to register or login.
+    max-time: "[MIN]2"
+    # Time to try to send the player in the server-logged-teleport module.
+    server-logged-teleport: "5"
+  # This module will send the player to another server when one server goes down and is redirected to this server,
+  # If the player is logged, the plugin will try to send the player to a specified server.
+  server-logged-teleport:
+    # Enable this option.
+    enabled: true
+    # Server List
+    servers:
+      - "Hub"
+
