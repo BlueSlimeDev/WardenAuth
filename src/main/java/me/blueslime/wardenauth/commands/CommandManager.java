@@ -1,7 +1,6 @@
 package me.blueslime.wardenauth.commands;
 
 import me.blueslime.wardenauth.WardenAuth;
-import dev.justjustin.wardenauth.commands.bungee.*;
 import me.blueslime.wardenauth.commands.bungee.*;
 import me.blueslime.wardenauth.commands.spigot.SpigotCrackedCommand;
 import me.blueslime.wardenauth.commands.spigot.SpigotSpawnCommand;
