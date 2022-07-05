@@ -19,7 +19,7 @@ Warden Auth
 <img align="center" alt="Features Image" src="https://cdn.discordapp.com/attachments/987409771302883341/987454795906433054/DownloadLink.png">
 
 - This project is being developed, the SpigotMC page doesn't exist yet!
-> - Bleeding edge releases are available through the [GitHub Actions page](https://github.com/MrUniverse44/WardenAuth/actions)  |  *This build can be unstable! Please report any issue!*
+> - Bleeding edge releases are available through the [GitHub Actions page](https://github.com/BlueSlimeDev/WardenAuth/actions)  |  *This build can be unstable! Please report any issue!*
 
 ---
 

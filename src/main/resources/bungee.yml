@@ -1,5 +1,5 @@
 name: WardenAuth
 version: '${project.version}'
-main: dev.justjustin.wardenauth.initialization.BungeeAuth
+main: me.blueslime.wardenauth.initialization.BungeeAuth
 description: Auth Plugin for offline-mode servers, and auto-premium-mode for Premiums
 author: JustJustin

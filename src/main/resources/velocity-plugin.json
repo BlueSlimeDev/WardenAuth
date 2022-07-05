@@ -4,6 +4,6 @@
   "version":"${project.version}",
   "authors":["JustJustin"],
   "dependencies":[],
-  "main":"dev.justjustin.wardenauth.initialization.VelocityAuth",
+  "main":"me.blueslime.wardenauth.initialization.VelocityAuth",
   "description:":"Auth Plugin for offline-mode servers, and auto-premium-mode for Premiums"
 }
