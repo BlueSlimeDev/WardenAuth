@@ -6,6 +6,7 @@ import dev.mruniverse.slimelib.commands.command.Command;
 import dev.mruniverse.slimelib.commands.command.SlimeCommand;
 import dev.mruniverse.slimelib.commands.sender.Sender;
 import dev.mruniverse.slimelib.control.Control;
+import me.blueslime.wardenauth.channels.ChannelHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -49,6 +50,22 @@ public class SpigotPremiumCommand implements SlimeCommand {
 
     @Override
     public void execute(Sender sender, String commandLabel, String[] args) {
-        //TODO: Command Execute
+        String permission = plugin.getLoader().getFiles().getControl(SlimeFile.COMMANDS).getString("commands.premium.permission", "NONE");
+        boolean hasPermission;
+
+        if (permission.equalsIgnoreCase("NONE")) {
+            hasPermission = true;
+        } else {
+            hasPermission = sender.hasPermission(
+                    permission
+            );
+        }
+
+        if (!sender.isConsoleSender() && hasPermission) {
+            plugin.getChannelHandler().send(
+                    ChannelHandler.Channel.PREMIUM,
+                    sender
+            );
+        }
     }
 }
