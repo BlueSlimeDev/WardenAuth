@@ -1,5 +1,7 @@
 package dev.justjustin.wardenauth;
 
+import dev.justjustin.wardenauth.channels.ChannelHandler;
+import dev.justjustin.wardenauth.commands.CommandManager;
 import dev.mruniverse.slimelib.SlimePlatform;
 import dev.mruniverse.slimelib.SlimePlugin;
 import dev.mruniverse.slimelib.SlimePluginInformation;
@@ -15,7 +17,9 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
 
     private final BaseSlimeLoader<T> baseSlimeLoader;
     private final SlimePluginInformation information;
+    private final CommandManager manager;
     private final SlimePlatform platform;
+    private final ChannelHandler handler;
     private final PluginMode mode;
     private final SlimeLogs logs;
     private final File folder;
@@ -46,18 +50,37 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
                 )
         );
 
+        this.handler = ChannelHandler.fromPlatform(
+                platform,
+                this
+        );
+
         getLoader().setFiles(SlimeFile.class);
 
         getLoader().init();
 
-        mode = PluginMode.fromString(
+        getChannelHandler().register();
+
+        this.manager = new CommandManager(this);
+
+        this.manager.register();
+
+        this.mode = PluginMode.fromString(
                 getLoader().getFiles().getControl(SlimeFile.SETTINGS).getString("settings.plugin-mode", "1")
         );
+    }
+
+    public ChannelHandler getChannelHandler() {
+        return handler;
     }
 
     //TODO: usage
     public PluginMode getMode() {
         return mode;
+    }
+
+    public CommandManager getCommandManager() {
+        return manager;
     }
 
     @Override

@@ -29,19 +29,19 @@ settings:
     channel: "wa381c6ax4"
     # This result need to be the same in your proxy settings, when the value from the bungee
     # Is received by the server, if the value is this done-value. the user will be accepted to be logged.
-    done-value: "wauth:done"
+    done-value: "wa:verification"
   premium:
     # This channel will be used when the player uses the premium command in the auth server.
     channel: "wa967c2ax7"
     # This result need to be the same in your proxy settings, when the value from the bungee
     # Is received by the server, if the value is this done-value. the user will be accepted for the command.
-    done-value: "wauth:done"
+    done-value: "wa:premium"
   offline:
     # This channel will be used when the player uses the cracked command in the auth server.
     channel: "wa881c7ax6"
     # This result need to be the same in your proxy settings, when the value from the bungee
     # Is received by the server, if the value is this done-value. the user will be accepted for the command.
-    done-value: "wauth:done"
+    done-value: "wa:offline"
   # This is not obligatory but will modify the login/register experience depending on what the server want
   # To disable the join or quit message using "none" in the value.
   server-extra-options:

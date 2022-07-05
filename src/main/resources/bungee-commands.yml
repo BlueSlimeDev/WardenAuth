@@ -5,4 +5,39 @@
 # Created by JustJustin (MrUniverse44)
 # Version: 1.0.0-SNAPSHOT
 #
-commands: []
+# You can disable a specified permission using NONE in the path.
+commands:
+  admin:
+    command: "wardenauth"
+    permission: "wardenauth.admin.usage"
+    aliases:
+      - "authconfig"
+  change-password:
+    command: "changepassword"
+    permission: "wardenauth.user.changepassword"
+    aliases:
+      - "changepw"
+      - "cpw"
+  offline:
+    command: "offline"
+    permission: "wardenauth.user.mode.offline"
+    aliases:
+      - "cracked"
+  premium:
+    command: "premium"
+    permission: "wardenauth.user.mode.premium"
+    aliases: []
+  register:
+    command: "register"
+    permission: NONE
+    aliases:
+      - "reg"
+  login:
+    command: "login"
+    permission: NONE
+    aliases:
+      - "l"
+  logout:
+    command: "logout"
+    permission: NONE
+    aliases: []

@@ -5,4 +5,18 @@
 # Created by JustJustin (MrUniverse44)
 # Version: 1.0.0-SNAPSHOT
 #
-commands: []
+# You can disable a specified permission using NONE in the path.
+commands:
+  spawn:
+    command: "setauthspawn"
+    permission: "wardenauth.admin.usage"
+    aliases:
+      - "setauth"
+  offline:
+    command: "crackedmode"
+    permission: "wardenauth.user.mode.offline"
+    aliases: []
+  premium:
+    command: "premiummode"
+    permission: "wardenauth.user.mode.premium"
+    aliases: []
