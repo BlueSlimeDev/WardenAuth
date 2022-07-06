@@ -81,7 +81,7 @@ public class SpigotSpawnCommand implements SlimeCommand {
 
             settings.save();
 
-            sender.sendColoredMessage("&aAuth location has been seted correctly.");
+            sender.sendColoredMessage("&aAuth location has been set correctly.");
 
         }
     }
