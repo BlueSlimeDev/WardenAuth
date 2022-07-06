@@ -10,6 +10,8 @@ import dev.mruniverse.slimelib.loader.BaseSlimeLoader;
 import dev.mruniverse.slimelib.loader.DefaultSlimeLoader;
 import dev.mruniverse.slimelib.logs.SlimeLogger;
 import dev.mruniverse.slimelib.logs.SlimeLogs;
+import me.blueslime.wardenauth.players.PlayerHandler;
+import me.blueslime.wardenauth.scheduler.SchedulerManager;
 
 import java.io.File;
 
@@ -17,9 +19,12 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
 
     private final BaseSlimeLoader<T> baseSlimeLoader;
     private final SlimePluginInformation information;
+
+    private final SchedulerManager schedulerManager;
     private final CommandManager manager;
     private final SlimePlatform platform;
     private final ChannelHandler handler;
+    private final PlayerHandler players;
     private final PluginMode mode;
     private final SlimeLogs logs;
     private final File folder;
@@ -55,11 +60,21 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
                 this
         );
 
+        this.players = PlayerHandler.fromPlatform(
+                platform,
+                plugin
+        );
+
         getLoader().setFiles(SlimeFile.class);
 
         getLoader().init();
 
         getChannelHandler().register();
+
+        this.schedulerManager = SchedulerManager.fromPlatform(
+                platform,
+                plugin
+        );
 
         this.manager = new CommandManager(this);
 
@@ -77,6 +92,14 @@ public final class WardenAuth<T> implements SlimePlugin<T> {
     //TODO: usage
     public PluginMode getMode() {
         return mode;
+    }
+
+    public PlayerHandler getPlayers() {
+        return players;
+    }
+
+    public SchedulerManager getSchedulerManager() {
+        return schedulerManager;
     }
 
     public CommandManager getCommandManager() {

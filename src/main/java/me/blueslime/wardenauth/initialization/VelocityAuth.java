@@ -23,6 +23,8 @@ import java.util.logging.Logger;
 )
 public class VelocityAuth {
 
+    private static VelocityAuth mainInstance;
+
     private WardenAuth<ProxyServer> instance;
 
     @Inject
@@ -37,6 +39,7 @@ public class VelocityAuth {
 
     @Subscribe
     public void onInitialize(ProxyInitializeEvent event) {
+        mainInstance = this;
         instance = new WardenAuth<>(
                 new File(dataDirectory.getParent().toFile(), "WardenAuth"),
                 server
@@ -45,5 +48,9 @@ public class VelocityAuth {
 
     public WardenAuth<ProxyServer> getInstance() {
         return instance;
+    }
+
+    public static VelocityAuth getMainInstance() {
+        return mainInstance;
     }
 }

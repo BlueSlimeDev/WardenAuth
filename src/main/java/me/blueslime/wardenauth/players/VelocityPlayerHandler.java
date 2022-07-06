@@ -1,0 +1,54 @@
+package me.blueslime.wardenauth.players;
+
+import com.velocitypowered.api.proxy.Player;
+import com.velocitypowered.api.proxy.ProxyServer;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+public class VelocityPlayerHandler implements PlayerHandler {
+
+    private final ProxyServer plugin;
+
+    public <T> VelocityPlayerHandler(T plugin) {
+        this.plugin = (ProxyServer) plugin;
+    }
+
+    @Override
+    public List<String> getPlayersNames() {
+        List<String> names = new ArrayList<>();
+
+        int current = 1;
+        int max = 10;
+
+        for (Player player : plugin.getAllPlayers()) {
+            if (current <= max) {
+                names.add(player.getUsername());
+            } else {
+                return names;
+            }
+            current++;
+        }
+
+        return names;
+    }
+
+    public boolean existPlayer(String text) {
+        return plugin.getPlayer(text).isPresent();
+    }
+
+    public boolean existPlayer(UUID uuid) {
+        return plugin.getPlayer(uuid).isPresent();
+    }
+
+    @Override
+    public int getPlayersSize() {
+        return plugin.getPlayerCount();
+    }
+
+    @Override
+    public int getMaxPlayers() {
+        return plugin.getConfiguration().getShowMaxPlayers();
+    }
+}

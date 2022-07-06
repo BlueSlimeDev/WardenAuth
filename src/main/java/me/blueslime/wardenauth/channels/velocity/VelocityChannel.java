@@ -57,13 +57,14 @@ public class VelocityChannel implements ChannelHandler {
                 outputStream.toByteArray()
         );
 
-        plugin.getPlugin().getScheduler().buildTask(
-                plugin.getPlugin(),
+        plugin.getSchedulerManager().schedule(
                 () -> player.get().sendPluginMessage(
                         channelIdentifierMap.get(channel),
                         outputStream.toByteArray()
-                )
-        ).delay(1L, TimeUnit.SECONDS).schedule();
+                ),
+                1L,
+                TimeUnit.SECONDS
+        );
     }
 
     @Override
